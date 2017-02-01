@@ -363,6 +363,10 @@ angular.module('mgcrea.ngStrap.datepicker', [ 'mgcrea.ngStrap.helpers.dateParser
           date = new Date(modelValue);
         }
         controller.$dateValue = dateParser.timezoneOffsetAdjust(date, options.timezone);
+
+        //Trigger validation
+        validateAgainstMinMaxDate(date);
+
         return getDateFormattedString();
       });
       controller.$render = function() {
